@@ -1,214 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<base href="/" />
-<title>Modern Download Section with Ads Everywhere</title>
-<style>
-:root {
-  --gradient: linear-gradient(45deg, #6366f1, #8b5cf6);
-}
+    <base href="/" />
+    <title>Modern Download Section with AdSense</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6283777398143215"
+        crossorigin="anonymous"></script>
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #a4aebd;
-  position: relative;
-  overflow: hidden;
-}
+    <style>
+        :root {
+            --gradient: linear-gradient(45deg, #6366f1, #8b5cf6);
+        }
 
-.download-container {
-  background: white;
-  padding: 3rem;
-  border-radius: 24px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-}
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #a4aebd;
+            position: relative;
+            overflow: hidden;
+        }
 
-.download-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1.5rem;
-}
+        .download-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 1rem;
-}
+        .download-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
 
-.description {
-  color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
 
-.download-button {
-  background: var(--gradient);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-  display: inline-block;
-  z-index: 2;
-}
+        .description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
 
-.download-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-}
+        .download-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 2;
+        }
 
-/* Long banner ads */
-.ad-banner {
-  width: 100%;
-  background: #f59e0b;
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
 
-/* Side ads */
-.side-ad {
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  width: 150px;
-  background: #6366f1;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
-  z-index: 1;
-  text-align: center;
-  padding: 1rem;
-}
-
-.side-ad.left {
-  left: 0;
-}
-
-.side-ad.right {
-  right: 0;
-}
-
-/* Popup ad */
-.popup-ad {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 300px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  z-index: 3;
-}
-
-.popup-ad .close-button {
-  display: inline-block;
-  background: #e11d48;
-  color: white;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 50%;
-  font-size: 1rem;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-/* Video ad */
-.video-ad {
-  width: 100%;
-  max-width: 400px;
-  background: black;
-  margin: 1rem 0;
-  height: 200px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.video-ad span {
-  color: yellow;
-  font-weight: bold;
-}
-</style>
+        /* AdSense placeholder styles */
+        .adsense-banner {
+            width: 100%;
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
 </head>
 <body>
-  
-<!-- Top Banner Ad -->
-<div class="ad-banner">Ad: Amazing Deals Await! Don't Miss Out!</div>
 
-<!-- Side Ads -->
-<div class="side-ad left">Ad: Special Offer!</div>
-<div class="side-ad right">Ad: Huge Discounts!</div>
-
-<!-- Main Content -->
-<div class="download-container">
-  <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 16L12 8M12 16L9 13M12 16L15 13" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M3 15V16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16V15" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-
-  <h1 class="title">Download Our App</h1>
-  <p class="description">Experience the next generation of productivity with our cutting-edge application. Fast, secure, and beautifully designed.</p>
-  
-  <!-- Video Ad -->
-  <div class="video-ad">
-    <span>Ad: Watch This!</span>
-  </div>
-  
-  <a href="https://example.com/download" class="download-button">
-    Download Now
-  </a>
+<!-- Top AdSense Ad -->
+<div class="adsense-banner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6283777398143215"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>
 
-<!-- Bottom Banner Ad -->
-<div class="ad-banner">Ad: Check Out These Amazing Offers!</div>
+<div class="download-container">
+    <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 16L12 8M12 16L9 13M12 16L15 13" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 15V16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16V15" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+    </svg>
 
-<!-- Popup Ad -->
-<div class="popup-ad" id="popup-ad">
-  <button class="close-button" onclick="document.getElementById('popup-ad').style.display='none'">×</button>
-  <h3>Ad: Exclusive Deal!</h3>
-  <p>Sign up now and save 50%!</p>
+    <h1 class="title">Download Our App</h1>
+    <p class="description">Experience the next generation of productivity with our cutting-edge application. Fast, secure, and beautifully designed.</p>
+
+    <a href="https://example.com/download" class="download-button">
+        Download Now
+    </a>
+</div>
+
+<!-- Bottom AdSense Ad -->
+<div class="adsense-banner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6283777398143215"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>
 
 <script>
-  document.querySelector('.download-button').addEventListener('click', function(e) {
-    e.preventDefault();
-    this.textContent = 'Downloading...';
-    setTimeout(() => {
-      this.textContent = 'Download Complete!';
-      setTimeout(() => {
-        this.textContent = 'Download Now';
-      }, 2000);
-    }, 2000);
-  });
+    document.querySelector('.download-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        this.textContent = 'Downloading...';
+        setTimeout(() => {
+            this.textContent = 'Download Complete!';
+            setTimeout(() => {
+                this.textContent = 'Download Now';
+            }, 2000);
+        }, 2000);
+    });
 </script>
 
 </body>

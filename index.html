@@ -1,150 +1,147 @@
-<html><head><base href="/" /><title>Modern Download Section</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/" />
+    <title>Modern Download Section with AdSense</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6283777398143215"
+        crossorigin="anonymous"></script>
+
     <style>
-    :root {
-      --gradient: linear-gradient(45deg, #6366f1, #8b5cf6);
-    }
-    
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: #f8fafc;
-    }
-    
-    .download-container {
-      background: white;
-      padding: 3rem;
-      border-radius: 24px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .download-icon {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 1rem;
-    }
-    
-    .description {
-      color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    
-    .download-button {
-      background: var(--gradient);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .download-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-    }
-    
-    .progress-ring {
-      transform: rotate(-90deg);
-      transition: stroke-dashoffset 0.35s;
-    }
-    
-    .floating-shapes {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-    
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--gradient);
-      opacity: 0.1;
-      animation: float 20s infinite linear;
-    }
-    
-    .shape:nth-child(1) {
-      width: 100px;
-      height: 100px;
-      top: -50px;
-      left: -50px;
-    }
-    
-    .shape:nth-child(2) {
-      width: 70px;
-      height: 70px;
-      bottom: -35px;
-      right: -35px;
-    }
-    
-    @keyframes float {
-      0% {
-        transform: rotate(0deg) translate(0, 0);
-      }
-      100% {
-        transform: rotate(360deg) translate(0, 0);
-      }
-    }
+        :root {
+            --gradient: linear-gradient(45deg, #6366f1, #8b5cf6);
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #a4aebd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .download-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .download-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            z-index: 2;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+
+        /* AdSense placeholder styles */
+        .adsense-banner {
+            width: 100%;
+            text-align: center;
+            margin: 1rem 0;
+        }
     </style>
-    </head>
-    <body>
-      <div class="download-container">
-        <div class="floating-shapes">
-          <div class="shape"></div>
-          <div class="shape"></div>
-        </div>
-        
-        <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 16L12 8M12 16L9 13M12 16L15 13" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M3 15V16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16V15" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    
-        <h1 class="title">Download Our App</h1>
-        <p class="description">Experience the next generation of productivity with our cutting-edge application. Fast, secure, and beautifully designed.</p>
-        
-        <a href="https://example.com/download" class="download-button">
-          Download Now
-        </a>
-      </div>
-    
+</head>
+<body>
+
+<!-- Top AdSense Ad -->
+<div class="adsense-banner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6283777398143215"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
     <script>
-    document.querySelector('.download-button').addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Here you would typically handle the actual download
-      // For demo purposes, we'll just show an animation
-      this.textContent = 'Downloading...';
-      
-      setTimeout(() => {
-        this.textContent = 'Download Complete!';
-        setTimeout(() => {
-          this.textContent = 'Download Now';
-        }, 2000);
-      }, 2000);
-    });
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    </body></html>
+</div>
+
+<div class="download-container">
+    <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 16L12 8M12 16L9 13M12 16L15 13" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 15V16C3 18.2091 4.79086 20 7 20H17C19.2091 20 21 18.2091 21 16V15" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <h1 class="title">Download Our App</h1>
+    <p class="description">Experience the next generation of productivity with our cutting-edge application. Fast, secure, and beautifully designed.</p>
+
+    <a href="https://example.com/download" class="download-button">
+        Download Now
+    </a>
+</div>
+
+<!-- Bottom AdSense Ad -->
+<div class="adsense-banner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6283777398143215"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<script>
+    document.querySelector('.download-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        this.textContent = 'Downloading...';
+        setTimeout(() => {
+            this.textContent = 'Download Complete!';
+            setTimeout(() => {
+                this.textContent = 'Download Now';
+            }, 2000);
+        }, 2000);
+    });
+</script>
+
+</body>
+</html>
